@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BS Tech Keygen Core</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <style>
+        body { background-color: #0f172a; color: #f8fafc; font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .container { background-color: #1e293b; padding: 30px; border-radius: 12px; width: 100%; max-width: 400px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+        h2 { color: #38bdf8; }
+        input { width: 90%; padding: 12px; margin-bottom: 15px; border-radius: 6px; border: none; background-color: #0f172a; color: #fff; text-align: center; font-size: 16px; text-transform: uppercase; }
+        button { background-color: #10b981; color: white; border: none; padding: 12px; border-radius: 6px; font-size: 16px; font-weight: bold; cursor: pointer; width: 95%; }
+        .result-box { margin-top: 25px; padding: 15px; background-color: #0f172a; border-radius: 6px; border: 1px dashed #38bdf8; display: none; }
+        .key-text { font-size: 18px; font-weight: bold; color: #38bdf8; letter-spacing: 1px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>👑 BS TECH MASTER KEYGEN</h2>
+    <input type="text" id="hwidInput" placeholder="PASTE HWID HERE">
+    <button onclick="generateLicenseKey()">GENERATE ACTIVATION KEY</button>
+    <div class="result-box" id="resultBox">
+        <div style="font-size: 12px; color: #94a3b8; margin-bottom: 5px;">CUSTOMER ACTIVATION KEY:</div>
+        <div class="key-text" id="keyOutput">---</div>
+    </div>
+</div>
+<script>
+    // 🔒 Yeh secret key aapke C# software wale code se match karti hai
+    const SECRET_SALT = "BS_SECRET_2026";
+
+    function generateLicenseKey() {
+        let hwid = document.getElementById("hwidInput").value.trim().toUpperCase();
+        if (!hwid) { alert("Basit Bhai, pehle HWID to enter karein!"); return; }
+        let rawString = hwid + SECRET_SALT;
+        let hash = CryptoJS.MD5(rawString).toString().toUpperCase();
+        let finalKey = hash.substring(0, 16);
+        document.getElementById("keyOutput").innerText = finalKey;
+        document.getElementById("resultBox").style.display = "block";
+    }
+</script>
+</body>
+</html>
